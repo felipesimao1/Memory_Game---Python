@@ -24,9 +24,15 @@ def main():
 
     while True:
         print_board(board)
+        
 
-        row = int(input(f"Player {current_player}, enter the row (0, 1, 2): \n"))
-        col = int(input(f"Player {current_player}, enter the column (0, 1, 2): \n"))
+        try:
+            row = int(input(f"Player {current_player}, enter the row (0, 1, 2): \n"))
+            col = int(input(f"Player {current_player}, enter the column (0, 1, 2): \n"))
+        except EOFError as e:
+            pass
+
+        
 
         if 0 <= row < 3 and 0 <= col < 3 and board[row][col] == ' ':
             board[row][col] = current_player
